@@ -1,13 +1,9 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = s.lower()
-        arr = []
-        for char in s:
-            if char.isalnum():
-                arr.append(char)
-        if arr[:] == arr[::-1]:
-            return True
-        
+        # Regex Filtering
+        s = re.sub('[^a-z0-9]', '', s)   ## replace characters that are NOT a-z or 0-9 with ''
+        return s == s[::-1]  ## slicing
     
 
 
